@@ -26,7 +26,7 @@ app.get("*", (req, res) => {
 });
 
 var job = new CronJob(
-  "* * * * *",
+  "@hourly",
   function () {
     blockchainService.syncBlockchain();
   },
