@@ -3,6 +3,9 @@ const path = require("path");
 const http = require("http");
 const cors = require("cors");
 const routes = require("./routes");
+var CronJob = require("cron").CronJob;
+
+const { blockchainService } = require("./routes/services");
 
 const PORT = process.env.PORT || 8081;
 
@@ -21,3 +24,13 @@ server.listen(PORT, () => {
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/dist", "index.html"));
 });
+
+var job = new CronJob(
+  "* * * * *",
+  function () {
+    blockchainService.syncBlockchain();
+  },
+  null,
+  true,
+  "America/Los_Angeles"
+);
