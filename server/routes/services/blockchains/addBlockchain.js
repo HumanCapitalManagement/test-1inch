@@ -1,4 +1,5 @@
 const { pool } = require("../../../db");
+const { tokenService } = require("../../services");
 
 async function addBlockchain({ name, id }) {
   try {
@@ -6,6 +7,7 @@ async function addBlockchain({ name, id }) {
       "INSERT INTO blockchains (id , name) VALUES ($1, $2)  RETURNING *",
       [id, name]
     );
+
     return result.rows[0];
   } catch (e) {
     console.log(e);

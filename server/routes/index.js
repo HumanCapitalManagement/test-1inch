@@ -5,7 +5,8 @@ const router = new Router();
 
 module.exports = () => {
   //blockchains
-  router.get("/api", blockchainQueries.getBlockchains);
-  router.post("/api/add-blockchain", blockchainQueries.addBlockchain);
+  router.get("/api/blockchains", blockchainQueries.getBlockchains);
+  router.post("/api/blockchain", blockchainQueries.addBlockchain);
+
   return router;
 };
