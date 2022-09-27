@@ -1,3 +1,4 @@
 const blockchainQueries = require("./blockchains");
+const tokenQueries = require("./tokens");
 
-module.exports = { blockchainQueries };
+module.exports = { blockchainQueries, tokenQueries };
