@@ -1,4 +1,5 @@
 const { tokenService } = require("../../services");
+const getScanLink = require("../../../utils/linkMapping");
 
 const getToken = async (req, res) => {
   try {
@@ -13,6 +14,7 @@ const getToken = async (req, res) => {
       res.status(200).json({
         info: token[0],
         orders,
+        link: getScanLink(blockchain_id, address),
       });
     } else {
       res.status(400).json({ result: "TOKEN NOT EXIST" });
