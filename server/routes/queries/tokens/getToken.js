@@ -2,9 +2,8 @@ const { tokenService } = require("../../services");
 
 const getToken = async (req, res) => {
   try {
-    const { tokenId } = req.body;
-    const token = await tokenService.getToken({ tokenId });
-
+    const id = req.params.id;
+    const token = await tokenService.getToken({ tokenId: id });
     if (token.length && token[0]) {
       const { blockchain_id, address } = token[0];
       const orders = await tokenService.getLimitOrders({

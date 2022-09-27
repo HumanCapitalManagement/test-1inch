@@ -7,7 +7,6 @@ async function getLimitOrders({ blockchainId, address }) {
   try {
     const res = await fetch(apiRoutes.getLimitOrderUrl(blockchainId, address));
     const data = await res.json();
-
     return data;
   } catch (e) {
     console.log(e);

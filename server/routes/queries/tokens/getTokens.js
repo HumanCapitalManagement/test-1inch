@@ -2,8 +2,8 @@ const { tokenService } = require("../../services");
 
 const getTokens = async (req, res) => {
   try {
-    const { blockchainId } = req.body;
-    const tokens = await tokenService.getTokens({ blockchainId });
+    const id = parseInt(req.params.id, 10);
+    const tokens = await tokenService.getTokens({ blockchainId: id });
 
     if (tokens) {
       res.status(200).json(tokens);
