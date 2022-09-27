@@ -5,11 +5,10 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    fetch("http://localhost:8081/api/test").then((response) =>
+    fetch("http://localhost:8081/api").then((response) =>
       console.log(response)
     );
   }, []);
-
   return (
     <div className="App">
       <div>
