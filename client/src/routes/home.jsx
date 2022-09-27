@@ -1,14 +1,25 @@
+import React, { useEffect, useState } from 'react';
+import { Link, useLoaderData } from "react-router-dom";
+import axios from '../utils/axios.config';
+
+export async function loader() {
+  const response = await axios.get('/blockchains');
+  return { blockchains: response.data };
+}
+
 export default function Home() {
+  const { blockchains } = useLoaderData();
   return (
     <>
-      <h2>Home</h2>
+      <h2>Blockchains</h2>
       <ul>
-        <li>
-          <a href="/1">Blockchain #1</a>
-        </li>
-        <li>
-          <a href="/1/2">B #1 Token #2</a>
-        </li>
+        {
+          blockchains.map(blockchain => (
+            <li key={blockchain.id}>
+              <Link to={`/${blockchain.id}`}>{blockchain.name}</Link>
+            </li>
+          ))
+        }
       </ul>
     </>
   );

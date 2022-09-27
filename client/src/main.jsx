@@ -7,9 +7,10 @@ import {
 } from "react-router-dom";
 import './index.css'
 import Root from "./routes/root";
-import Home from "./routes/home";
-import Blockchain from "./routes/blockchain";
+import Home, { loader as homeLoader } from "./routes/home";
+import Blockchain, { loader as blockchainLoader } from "./routes/blockchain";
 import Token from "./routes/token";
+import AddBlockchain, { action as addBlockchainAction } from "./routes/add-blockchain";
 import ErrorPage from "./error-page";
 
 const router = createBrowserRouter([
@@ -21,14 +22,21 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: homeLoader,
       },
       {
         path: "/:blockchainId",
         element: <Blockchain />,
+        loader: blockchainLoader,
       },
       {
         path: "/:blockchainId/:tokenId",
         element: <Token />,
+      },
+      {
+        path: "/add-blockchain",
+        element: <AddBlockchain />,
+        action: addBlockchainAction,
       },
     ],
   },
