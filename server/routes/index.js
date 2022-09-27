@@ -10,6 +10,6 @@ module.exports = () => {
 
   //tokens
   router.get("/api/tokens", tokenQueries.getTokens);
-
+  router.get("api/token", tokenQueries.getToken);
   return router;
 };

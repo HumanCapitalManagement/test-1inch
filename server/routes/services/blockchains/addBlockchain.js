@@ -1,5 +1,4 @@
 const { pool } = require("../../../db");
-const { tokenService } = require("../../services");
 
 async function addBlockchain({ name, id }) {
   try {
