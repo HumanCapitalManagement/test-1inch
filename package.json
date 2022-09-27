@@ -1,0 +1,15 @@
+{
+  "private":true,
+  "name": "1inch-api-integrate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "start": "cd ./server && pm2-runtime start ecosystem.config.js --env production",
+    "dev": "concurrently yarn:dev:server yarn:dev:client",
+    "dev:server": "cd ./server && nodemon server.js",
+    "dev:client": "cd ./client && GENERATE_SOURCEMAP=false yarn dev",
+    "build": "cd ./client && yarn build"
+  }
+}
