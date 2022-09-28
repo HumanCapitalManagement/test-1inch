@@ -1,4 +1,4 @@
-import { Form, redirect } from "react-router-dom";
+import { Form, redirect, useNavigation } from "react-router-dom";
 import axios from '../utils/axios.config';
 
 export async function action({ request }) {
@@ -11,9 +11,10 @@ export async function action({ request }) {
 }
 
 export default function AddBlockchain() {
+  const navigation = useNavigation();
   return (
     <>
-      <h2>Add blockchain</h2>
+      <h2 className="mt-4 mb-4">Add blockchain</h2>
       <Form method="post">
         <div className="form-group">
           <label htmlFor="inputId">ID</label>
@@ -23,7 +24,7 @@ export default function AddBlockchain() {
           <label htmlFor="inputName">Name</label>
           <input className="form-control" id="inputName" name="name" />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary" disabled={navigation.state === 'submitting'}>Submit</button>
       </Form>
     </>
   );

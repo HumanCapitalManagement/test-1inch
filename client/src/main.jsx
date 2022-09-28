@@ -9,7 +9,7 @@ import './index.css'
 import Root from "./routes/root";
 import Home, { loader as homeLoader } from "./routes/home";
 import Blockchain, { loader as blockchainLoader } from "./routes/blockchain";
-import Token from "./routes/token";
+import Token, { loader as tokenLoader } from "./routes/token";
 import AddBlockchain, { action as addBlockchainAction } from "./routes/add-blockchain";
 import ErrorPage from "./error-page";
 
@@ -32,6 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/:blockchainId/:tokenId",
         element: <Token />,
+        loader: tokenLoader,
       },
       {
         path: "/add-blockchain",

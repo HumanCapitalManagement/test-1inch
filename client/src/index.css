@@ -3,3 +3,18 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+.token-table tr {
+  line-height: 30px;
+}
+
+.token-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.token-logo-container img {
+  width: 120px;
+  height: 120px;
+}
