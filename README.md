@@ -1,4 +1,8 @@
-# How to set up locally
+A simple demo app utilizing 1inch APIs.
+
+Try it live at https://api-integration-1inch.herokuapp.com/.
+
+## How to set up locally
 
 STEP 1: Clone the repo.
 
