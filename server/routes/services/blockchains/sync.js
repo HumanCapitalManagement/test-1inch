@@ -14,7 +14,7 @@ async function sync() {
           await addToken({
             blockchain_id: blockchain.id,
             address: token.address,
-            logo_uri: token.logo_uri,
+            logo_uri: token.logoURI,
             symbol: token.symbol,
             name: token.name,
           });

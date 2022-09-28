@@ -16,7 +16,7 @@ const addBlockChain = async (req, res) => {
             await tokenService.addToken({
               blockchain_id: id,
               address: token.address,
-              logo_uri: token.logo_uri,
+              logo_uri: token.logoURI,
               symbol: token.symbol,
               name: token.name,
             });
